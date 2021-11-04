@@ -1,0 +1,184 @@
+@mixin loader () {
+    .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .loader {
+        font-size: 10px;
+        margin: 50px auto;
+        text-indent: -9999em;
+        width: 11em;
+        height: 11em;
+        border-radius: 50%;
+        background: #ffffff;
+        background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        position: relative;
+        -webkit-animation: load3 1.4s infinite linear;
+        animation: load3 1.4s infinite linear;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    .loader:before {
+        width: 50%;
+        height: 50%;
+        background: #ffffff;
+        border-radius: 100% 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+    }
+    .loader:after {
+        background: #0dc5c1;
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        content: '';
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    @-webkit-keyframes load3 {
+        0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        }
+        100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        }
+    }
+    @keyframes load3 {
+        0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        }
+        100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        }
+    }
+    
+}
+@mixin body-basics () {
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}
+@mixin m-x ($ml, $mr) {
+    margin-left: $ml;
+    margin-right: $mr;
+}
+@mixin m-y ($mt, $mb) {
+    margin-top: $mt;
+    margin-bottom: $mb;
+}
+@mixin p-x ($pl, $pr) {
+    padding-left: $pl;
+    padding-right: $pr;
+}
+@mixin p-y ($pt, $pb) {
+    padding-top: $pt;
+    padding-bottom: $pb;
+}
+@mixin display-type ($mode: flex, $direction: row, $align-hz: center, $align-vt: center) {
+    display: $mode;
+    flex-direction: $direction;
+    justify-content: $align-hz;
+    align-items: $align-vt;
+}
+@mixin fade-in ($delay: 250, $threshold: 20) {
+    animation: fade-in #{$delay}ms;
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+            transform: translateX(-#{$threshold}px);
+        }
+        25% {
+            opacity: 25%;
+            transform: translateX(-#{$threshold/2}px);
+        }
+        50% {
+            opacity: 50%;
+            transform: translateX(-#{$threshold/2/2}px);
+        }
+        75% {
+            opacity: 75%;
+            transform: translateX(-#{$threshold/2/2/2}px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+@mixin fade-out ($delay: 250, $threshold: 20) {
+    animation: fade-out #{$delay}ms;
+    @keyframes fade-out {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        25% {
+            opacity: 75%;
+            transform: translateX(#{$threshold}px);
+        }
+        50% {
+            opacity: 50%;
+            transform: translateX(#{$threshold*2}px);
+        }
+        75% {
+            opacity: 25%;
+            transform: translateX(#{$threshold*4}px);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(0);
+        }
+    }
+}
+@mixin abs-position ($top, $right, $bottom, $left) {
+    position: absolute; 
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+@mixin fade-in-adv () {
+    @keyframes f-i-a {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    animation: f-i-a 300ms;
+}
+@mixin mobile-mods () {
+    @media screen and (max-width: 700px) {
+        .chatbox {
+            width: 100% !important;
+            height: 100% !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            transform: translate(0, 0) !important;
+        }
+        .chat-view {
+            height: 100% !important;
+        }
+    }
+}
