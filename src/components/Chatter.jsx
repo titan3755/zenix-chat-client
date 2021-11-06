@@ -17,7 +17,7 @@ const RenderChat = (props) => {
     const msgInput = useRef(null)
     const dummyDivRef = useRef(null)
     useEffect(() => {
-        socketRef.current = io('http://localhost:4000')
+        socketRef.current = io('https://vast-waters-60826.herokuapp.com')
         socketRef.current.on('connect', () => {
             connected(true)
             socketRef.current.emit('userJoined', props.user, socketRef.current.id)
