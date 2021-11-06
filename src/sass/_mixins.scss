@@ -1,3 +1,4 @@
+@use "sass:math";
 @mixin loader () {
     .loading {
         position: absolute;
@@ -5,70 +6,62 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .loader {
-        font-size: 10px;
-        margin: 50px auto;
-        text-indent: -9999em;
-        width: 11em;
-        height: 11em;
-        border-radius: 50%;
-        background: #ffffff;
-        background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-        position: relative;
-        -webkit-animation: load3 1.4s infinite linear;
-        animation: load3 1.4s infinite linear;
-        -webkit-transform: translateZ(0);
-        -ms-transform: translateZ(0);
-        transform: translateZ(0);
+    @keyframes ldio-1wjzpatfjl7 {
+    0% { transform: rotate(0) }
+    100% { transform: rotate(360deg) }
     }
-    .loader:before {
-        width: 50%;
-        height: 50%;
-        background: #ffffff;
-        border-radius: 100% 0 0 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
+    .ldio-1wjzpatfjl7 div { box-sizing: border-box!important }
+    .ldio-1wjzpatfjl7 > div {
+    position: absolute;
+    width: 142px;
+    height: 142px;
+    top: 29px;
+    left: 29px;
+    border-radius: 50%;
+    border: 14px solid #000;
+    border-color: #7188fe transparent #7188fe transparent;
+    animation: ldio-1wjzpatfjl7 0.6289308176100629s linear infinite;
     }
-    .loader:after {
-        background: #0dc5c1;
-        width: 75%;
-        height: 75%;
-        border-radius: 50%;
-        content: '';
-        margin: auto;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+    .ldio-1wjzpatfjl7 > div:nth-child(2) { border-color: transparent }
+    .ldio-1wjzpatfjl7 > div:nth-child(2) div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
     }
-    @-webkit-keyframes load3 {
-        0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-        }
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+    .ldio-1wjzpatfjl7 > div:nth-child(2) div:before, .ldio-1wjzpatfjl7 > div:nth-child(2) div:after { 
+    content: "";
+    display: block;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: -14px;
+    left: 50px;
+    background: #7188fe;
+    border-radius: 50%;
+    box-shadow: 0 128px 0 0 #7188fe;
     }
-    @keyframes load3 {
-        0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-        }
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+    .ldio-1wjzpatfjl7 > div:nth-child(2) div:after { 
+    left: -14px;
+    top: 50px;
+    box-shadow: 128px 0 0 0 #7188fe;
     }
-    
+    .loadingio-spinner-dual-ring-bolf0tkuwgl {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+    }
+    .ldio-1wjzpatfjl7 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+    }
+    .ldio-1wjzpatfjl7 div { box-sizing: content-box; }
 }
 @mixin body-basics () {
     body {
@@ -108,15 +101,15 @@
         }
         25% {
             opacity: 25%;
-            transform: translateX(-#{$threshold/2}px);
+            transform: translateX(-#{math.div($threshold, 2)}px);
         }
         50% {
             opacity: 50%;
-            transform: translateX(-#{$threshold/2/2}px);
+            transform: translateX(-#{math.div($threshold, 4)}px);
         }
         75% {
             opacity: 75%;
-            transform: translateX(-#{$threshold/2/2/2}px);
+            transform: translateX(-#{math.div($threshold, 8)}px);
         }
         100% {
             opacity: 1;
@@ -169,6 +162,15 @@
 }
 @mixin mobile-mods () {
     @media screen and (max-width: 700px) {
+        .username-main {
+            width: 100% !important;
+            height: 100%;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            transform: translate(0, 0) !important;
+            border-radius: 0 !important;
+        }
         .chatbox {
             width: 100% !important;
             height: 100% !important;
@@ -179,6 +181,18 @@
         }
         .chat-view {
             height: 100% !important;
+        }
+        .bubble {
+            max-width: 85% !important;
+        }
+        .bubble-2 {
+            max-width: 85% !important;
+        }
+        .sidebar {
+            display: none !important;
+        }
+        .sidebar-toggler {
+            display: block !important;
         }
     }
 }

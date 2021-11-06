@@ -6,7 +6,9 @@ const Loader = (props) => {
     return (
         <React.Fragment>
             <div className="loading">
-                Loading ...
+                <div className="loadingio-spinner-dual-ring-bolf0tkuwgl"><div className="ldio-1wjzpatfjl7">
+                <div></div><div><div></div></div>
+                </div></div>
             </div>
         </React.Fragment>
     )
